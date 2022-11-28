@@ -12,8 +12,10 @@ struct MainView: View {
     @ObservedObject var viewModel: MainViewModel
     
     var body: some View {
-        List(viewModel.beers, id: \.id) { beer in
-            Text(beer.name)
+        NavigationStack(path: $viewModel.navigationPath) {
+            List(viewModel.beers, id: \.id) { beer in
+                Text(beer.name)
+            }
         }
         .onAppear(perform: viewModel.onAppear)
         .onDisappear(perform: viewModel.onDisappear)

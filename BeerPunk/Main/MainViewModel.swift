@@ -5,7 +5,7 @@
 //  Created by Laudien, Norman on 28.11.22.
 //
 
-import Foundation
+import SwiftUI
 
 class MainViewModel: ObservableObject {
     
@@ -14,6 +14,7 @@ class MainViewModel: ObservableObject {
     @Published var beers: [Beer] = []
     @Published var error: Error?
     @Published var selectedBeer: Beer?
+    @Published var navigationPath = NavigationPath()
     
     private var fetchBeersTask: Task<Void, Error>?
     
