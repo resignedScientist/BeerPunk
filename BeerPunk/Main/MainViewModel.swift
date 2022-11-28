@@ -9,4 +9,30 @@ import Foundation
 
 class MainViewModel: ObservableObject {
     
+    let repository: BeerRepository
+    
+    @Published var beers: [Beer] = []
+    @Published var error: Error?
+    @Published var selectedBeer: Beer?
+    
+    private var fetchBeersTask: Task<Void, Error>?
+    
+    init(repository: BeerRepository) {
+        self.repository = repository
+    }
+    
+    func onAppear() {
+        fetchBeersTask = Task { [weak self] in
+            do {
+                self?.beers = try await repository.fetchBeers()
+            } catch {
+                print(error)
+                self?.error = error
+            }
+        }
+    }
+    
+    func onDisappear() {
+        fetchBeersTask?.cancel()
+    }
 }

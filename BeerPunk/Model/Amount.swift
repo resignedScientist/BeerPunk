@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Amount: Decodable {
+struct Amount: Decodable, Hashable {
     let value: Double
     let unit: String
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Beer: Decodable {
+struct Beer: Decodable, Hashable {
     let id: Int
     let name: String
     let tagline: String
@@ -16,8 +16,6 @@ struct Beer: Decodable {
     let imageURL: URL
     let volume: Volume
     let boilVolume: Volume
-    let ingredients: [String: Ingredient]
-    let yeast: String
     let foodPairing: [String]
     let brewersTips: String
     let contributor: String
@@ -31,8 +29,6 @@ struct Beer: Decodable {
         case imageURL = "image_url"
         case volume
         case boilVolume = "boil_volume"
-        case ingredients
-        case yeast
         case foodPairing = "food_pairing"
         case brewersTips = "brewers_tips"
         case contributor = "contributed_by"

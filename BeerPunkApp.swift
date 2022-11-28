@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct BeerPunkApp: App {
+    
+    private let repository: BeerRepository = BeerRepositoryImpl()
+    
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainView(
+                viewModel: MainViewModel(repository: repository)
+            )
         }
     }
 }

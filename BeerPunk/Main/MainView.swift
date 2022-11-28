@@ -8,19 +8,24 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    @ObservedObject var viewModel: MainViewModel
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        List(viewModel.beers, id: \.id) { beer in
+            Text(beer.name)
         }
-        .padding()
+        .onAppear(perform: viewModel.onAppear)
+        .onDisappear(perform: viewModel.onDisappear)
     }
 }
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView(
+            viewModel: MainViewModel(
+                repository: MockBeerRepository()
+            )
+        )
     }
 }
