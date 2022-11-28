@@ -7,7 +7,6 @@
 
 import Foundation
 
-@MainActor
 class MainViewModel: ObservableObject {
     
     let repository: BeerRepository
@@ -23,7 +22,7 @@ class MainViewModel: ObservableObject {
     }
     
     func onAppear() {
-        fetchBeersTask = Task { [weak self] in
+        fetchBeersTask = Task { @MainActor [weak self] in
             do {
                 self?.beers = try await repository.fetchBeers()
             } catch {
