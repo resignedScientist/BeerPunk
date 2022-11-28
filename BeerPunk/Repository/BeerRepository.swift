@@ -28,9 +28,6 @@ class BeerRepositoryImpl: BeerRepository {
         let (data, _) = try await URLSession.shared.data(from: url)
         let decoder = JSONDecoder()
         
-        let str = String(data: data, encoding: .utf8)!
-        print(str)
-        
         return try decoder.decode([Beer].self, from: data)
     }
     
