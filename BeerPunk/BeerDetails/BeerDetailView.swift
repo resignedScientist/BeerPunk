@@ -29,8 +29,9 @@ struct BeerDetailView: View {
                         Text(viewModel.beer.description)
                     }
                 }
+                .padding(.bottom)
                 
-                
+                DropdownView(title: "Food pairings", items: viewModel.beer.foodPairing)
             }
             .padding()
         }
