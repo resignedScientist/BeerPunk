@@ -22,10 +22,16 @@ struct MainView: View {
                     )
                 }
             }
+            .searchable(text: $viewModel.searchText)
             .navigationTitle("BeerPunk")
         }
         .onAppear(perform: viewModel.onAppear)
         .onDisappear(perform: viewModel.onDisappear)
+        .overlay(alignment: .center) {
+            if viewModel.isLoading {
+                ProgressView()
+            }
+        }
     }
 }
 

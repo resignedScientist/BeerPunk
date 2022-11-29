@@ -11,12 +11,24 @@ class MainViewModel: ObservableObject {
     
     let repository: BeerRepository
     
-    @Published var beers: [Beer] = []
+    @Published private var allBeers: [Beer] = []
+    private var fetchBeersTask: Task<Void, Error>?
+    
     @Published var error: Error?
     @Published var selectedBeer: Beer?
     @Published var navigationPath = NavigationPath()
+    @Published var searchText = ""
+    @Published var isLoading = true
     
-    private var fetchBeersTask: Task<Void, Error>?
+    var beers: [Beer] {
+        if searchText.isEmpty {
+            return allBeers
+        } else {
+            return allBeers.filter { beer in
+                beer.name.localizedCaseInsensitiveContains(searchText)
+            }
+        }
+    }
     
     init(repository: BeerRepository) {
         self.repository = repository
@@ -25,11 +37,14 @@ class MainViewModel: ObservableObject {
     func onAppear() {
         fetchBeersTask = Task { @MainActor [weak self] in
             do {
-                self?.beers = try await repository.fetchBeers()
+                self?.allBeers = try await repository
+                    .fetchBeers()
+                    .sorted {$0.name < $1.name }
             } catch {
                 print(error)
                 self?.error = error
             }
+            self?.isLoading = false
         }
     }
     
