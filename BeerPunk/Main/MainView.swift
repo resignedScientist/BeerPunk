@@ -14,8 +14,11 @@ struct MainView: View {
     var body: some View {
         NavigationStack(path: $viewModel.navigationPath) {
             List(viewModel.beers, id: \.id) { beer in
-                Text(beer.name)
+                NavigationLink(beer.name) {
+                    Text(beer.name)
+                }
             }
+            .navigationTitle("BeerPunk")
         }
         .onAppear(perform: viewModel.onAppear)
         .onDisappear(perform: viewModel.onDisappear)
