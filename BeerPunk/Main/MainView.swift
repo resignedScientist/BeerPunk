@@ -15,7 +15,11 @@ struct MainView: View {
         NavigationStack(path: $viewModel.navigationPath) {
             List(viewModel.beers, id: \.id) { beer in
                 NavigationLink(beer.name) {
-                    Text(beer.name)
+                    BeerDetailView(
+                        viewModel: BeerDetailViewModel(
+                            beer: beer
+                        )
+                    )
                 }
             }
             .navigationTitle("BeerPunk")

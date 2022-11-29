@@ -18,6 +18,8 @@
 		11A36CD62935530F0006081A /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A36CD52935530F0006081A /* Beer.swift */; };
 		11A36CD82935532F0006081A /* Volume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A36CD72935532F0006081A /* Volume.swift */; };
 		11A36CDC293553500006081A /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A36CDB293553500006081A /* Amount.swift */; };
+		11A36CDF29364BDC0006081A /* BeerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A36CDE29364BDC0006081A /* BeerDetailView.swift */; };
+		11A36CE129364DE70006081A /* BeerDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A36CE029364DE70006081A /* BeerDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		11A36CD52935530F0006081A /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 		11A36CD72935532F0006081A /* Volume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volume.swift; sourceTree = "<group>"; };
 		11A36CDB293553500006081A /* Amount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
+		11A36CDE29364BDC0006081A /* BeerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailView.swift; sourceTree = "<group>"; };
+		11A36CE029364DE70006081A /* BeerDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 		11A36CA129354F270006081A /* BeerPunk */ = {
 			isa = PBXGroup;
 			children = (
+				11A36CDD29364BC80006081A /* BeerDetails */,
 				11A36CCC29354F540006081A /* Main */,
 				11A36CD4293552ED0006081A /* Model */,
 				11A36CD129354FCF0006081A /* Repository */,
@@ -153,6 +158,15 @@
 				11A36CD72935532F0006081A /* Volume.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		11A36CDD29364BC80006081A /* BeerDetails */ = {
+			isa = PBXGroup;
+			children = (
+				11A36CDE29364BDC0006081A /* BeerDetailView.swift */,
+				11A36CE029364DE70006081A /* BeerDetailViewModel.swift */,
+			);
+			path = BeerDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,8 +299,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				11A36CCE29354F610006081A /* MainView.swift in Sources */,
+				11A36CE129364DE70006081A /* BeerDetailViewModel.swift in Sources */,
 				11A36CD329354FD90006081A /* BeerRepository.swift in Sources */,
 				11A36CDC293553500006081A /* Amount.swift in Sources */,
+				11A36CDF29364BDC0006081A /* BeerDetailView.swift in Sources */,
 				11A36CD62935530F0006081A /* Beer.swift in Sources */,
 				11A36CD82935532F0006081A /* Volume.swift in Sources */,
 				11A36CA329354F270006081A /* BeerPunkApp.swift in Sources */,
